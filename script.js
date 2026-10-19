@@ -10,68 +10,68 @@
 // --------------------------------------------------
 
 // First, we create a variable for the current scene being displayed
-let currentScene = "backyard";
+let currentScene = "bigroom";
 
 // Then, we create an object that stores the data for each scene,
 const scenes = {
-  // See "backyard" for the first example
-  backyard: {
-    title: "Location: Backyard",
-    character: "Interviewee:Grandma",
-    text: "Text: well what I remember happening is that Darcie went inside to play with her pretend kitchen, I heard her neighbor mention he was really hungry, and the dog ran around really quickly",
+  // See "bigroom" for the first example
+  bigroom: {
+    title: "Location: bigroom",
+    character: "Interviewer:clerk",
+    text: "your job is to find the correct CPU without breaking your bank.",
     // you can choose how many choices to include
     // each choice can have text, an action, and/or nextScene
     choices: [
       {
-        text: "Chase after the dog (-10 HP)",
+        text: "Buy the i9-14900k like you dont care.",
         action: function () {
-          updateHealth(-10);
+          updateHealth(-100);
         },
         nextScene: "entrance"
       },
       {
-        text: "Ask about the neighbor",
-        nextScene: "hallway"
+        text: "Ask for a GPU",
+        nextScene: "gpuArea"
       },
       {
           text: "Pick up the brass key",
           action: function () {
             pickUpItem("brass key");
           },
-          nextScene: "hallway"
+          nextScene: "gpuArea"
       }
     ]
   },
 
   entrance: {
     title: "Location: Entrance",
-    character: "Interviewee:Neighbor",
-    text: "well what I remember...",
+    character: "Interviewer:Other clerk",
+    text: "what.",
     choices: [
       {
         text: "Ask about the dog",
-        nextScene: "backyard"
+        nextScene: "bigroom"
       },
          {
-        text: "Ask about the neighbor",
-        nextScene: "hallway"
+        text: "Ask about the the other clerk",
+        nextScene: "gpuArea"
       }
     ]
   },
 
-  hallway: {
-    title: "The Hallway",
-    text: "The hallway is dark and silent.",
+  gpuArea: {
+    title: "The gpuArea",
+    text: "The gpuArea is dark and silent.",
     choices: [
       {
-        text: "backyard",
-        nextScene: "lockedDoor"
+        text: "bigroom",
+        nextScene: "goldenSSD"
       }
     ]
   },
 
-   lockedDoor: {
-    title: "The Locked Door",
+   goldenSSD: {
+    title: "The goldenSSD",
     text: "The door handle doesn't move.",
     choices: [
       {
@@ -80,14 +80,14 @@ const scenes = {
       },
       {
         text: "Go back",
-        nextScene: "backyard"
+        nextScene: "bigroom"
       }
     ]
   },
 
    solution: {
     title: "The solution",
-    text: "You solved the mystery!",
+    text: "You didnt break your bank!",
     
   }
 };
